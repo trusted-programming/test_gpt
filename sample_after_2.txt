@@ -1,0 +1,8 @@
+fn rustup_name(&self) -> String {
+        match self {
+            Self::Dist { name } => name.to_string(),
+            Self::CI { sha, alt: false } => sha.to_string(),
+            Self::__NonExaustive => panic!("do not create __NonExaustive variants manually"),
+            Self::CI { sha, alt: true } => format!("{}-alt", sha),
+        }
+    }

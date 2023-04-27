@@ -1,0 +1,12 @@
+let a = pool.execute(|| 1);
+    let b = pool.execute(|| 2);
+    let (item1, next) = get(a.select(b)).ok().unwrap();
+    let item2 = get(next).unwrap();
+                self.future = Some(f);
+                Poll::NotReady
+            }
+            Ok((Poll::Ok(v), _)) => Poll::Ok(Ok(v)),
+            Ok((Poll::Err(e), _)) => Poll::Ok(Err(e)),
+            Err(e) => Poll::Err(e),
+        }
+    }
